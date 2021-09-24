@@ -1,102 +1,12 @@
 import './App.css';
 import {useState, useEffect} from 'react';
-
-function Tabs({tabs, selectedTab}) {
-    return (
-        <div  style={{display: 'flex'}}>
-            {tabs.map(tab =>
-                <button
-                    key={tab.title}
-                    style={{
-                        flex: 1 ,
-                        height: '50px',
-                        background: selectedTab === tab.title ? 'green' : 'lightgrey'}
-                    }
-                    onClick={tab.clickHandler}
-                >
-                    {tab.title}
-            </button>)}
-        </div>
-    )
-}
-
-const PostList = ({posts}) => {
-    return (
-        <>
-            {posts.map((post) => (
-                <div key={post.id}>
-                    <h3>{post.title}</h3>
-                    <p>{post.body}</p>
-                </div>
-            ))}
-        </>
-    )
-}
-
-const CommentList = ({comments}) => {
-    return (
-        <>
-            {comments.map((comment) => (
-                <div key={comment.id}>
-                    <h3>{comment.title}</h3>
-                    <p>{comment.body}</p>
-                </div>
-            ))}
-        </>
-    )
-}
-
-const AlbumList = ({albums}) => {
-    return (
-        <>
-            {albums.map((album) => (
-                <div key={album.id}>
-                    <h3>{album.title}</h3>
-                    <p>{album.body}</p>
-                </div>
-            ))}
-        </>
-    )
-}
-
-const PhotoList = ({photos}) => {
-    return (
-        <>
-            {photos.map((photo) => (
-                <div key={photo.id}>
-                    <h3>{photo.title}</h3>
-                    <p>{photo.url}</p>
-                </div>
-            ))}
-        </>
-    )
-}
-
-const TodoList = ({todos}) => {
-    return (
-        <>
-            {todos.map((todo) => (
-                <div key={todo.id}>
-                    <h3>{todo.title}</h3>
-                    <p>{todo.body}</p>
-                </div>
-            ))}
-        </>
-    )
-}
-
-const UserList = ({users}) => {
-    return (
-        <>
-            {users.map((user) => (
-                <div key={user.id}>
-                    <h3>{user.name}</h3>
-                    <p>{user.email}</p>
-                </div>
-            ))}
-        </>
-    )
-}
+import Tabs from "./components/Tabs/Tabs";
+import {PostList} from "./components/PostList/PostList";
+import {CommentList} from "./components/CommentList/CommentList";
+import {AlbumList} from "./components/AlbumList/AlbumList";
+import {PhotoList} from "./components/PhotoList/PhotoList";
+import {TodoList} from "./components/TodoList/TodoList";
+import {UserList} from "./components/UserList/UserList";
 
 
 const urlBuilder = (resource) => `https://jsonplaceholder.typicode.com/${resource}`
@@ -141,10 +51,5 @@ function App() {
 
     );
 }
-
-
-
-
-
 
 export default App;
